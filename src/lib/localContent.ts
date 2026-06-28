@@ -60,6 +60,37 @@ export const localProfile = {
   youtubeUrl: "https://www.youtube.com/@andreroslund1366",
 } as const;
 
+/**
+ * Andrés text "Meningen med livet" – egen sida som länkas från Om mig.
+ * Strukturerad i sektioner med valfri rubrik.
+ */
+export const meaningOfLife = {
+  title: "Meningen med livet",
+  sections: [
+    {
+      paragraphs: [
+        "Det finns ingen universell regel för vad som är meningen med livet. Kanske finns det inte ens någon agenda, med tanke på att människan kom till efter istiden för tiotusen år sedan. För somliga är det att finna Jesus, för andra att reproducera sig. Länder emellan tycks ibland vilja eliminera befolkningar med kärnvapen och avancerad krigsmateriel.",
+        "Tänk om villkorslös kärlek rådde. En värld där du blir bedömd för dina handlingar och inte för hur många Rolex-klockor du äger. Ett mänskligt samhälle där rasism, hat och missunnsamhet inte ens finns i ordboken – en utopi, liksom att pedofili inte skulle existera.",
+      ],
+    },
+    {
+      heading: "Den sanna rikedomen",
+      paragraphs: [
+        "Själv älskar jag att njuta, känna mig tillfreds, trygg och fri. Att se mina barn växa upp, där karriär och ekonomiska vinstintressen inte står i fokus. Jag älskar Moder jord och dess natur: eld och vatten, mat och musik, klippor och vind, mänskliga interaktioner och humor.",
+        "Att skjuta ut ekan i skymningen, ankra och hälla upp en kopp kaffe. Se på när sonen slänger ut metreven och håller ett öga på flötet som guppar. Upplevelsen när pojken drar upp abborrar. Att få äta en ostsmörgås till naturens egna ljud – kluckandet mot ekan, en uggla som hoar och fiskar som hoppar och leker i sjön.",
+        "Det tror jag är meningen med livet.",
+      ],
+    },
+    {
+      heading: "Att lämna vidare",
+      paragraphs: [
+        "Efter att ha fått uppleva denna rikedom kan jag en dag dra upp årorna, se grillröken lägga sig och bege mig ovan molnen. Inga skulder att reglera, ingen sorg att bära på. Jag kan hälsa mina polare att jag inte var en dålig människa, fastän jag ibland navigerade på smala vägar.",
+        "Min högsta önskan är att min pojk väljer andra, bredare vägar – och att han får uppleva den rikedom jag trots allt har haft.",
+      ],
+    },
+  ] as AboutSection[],
+} as const;
+
 /** Tillfälliga "Aktuellt"-inlägg (Andrés pågående bokprojekt). */
 export interface LocalUpdate {
   _id: string;

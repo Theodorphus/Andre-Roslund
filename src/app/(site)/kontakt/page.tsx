@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getSettings } from "@/sanity/lib/queries";
 import SanityImg from "@/components/SanityImg";
 import ContactForm from "@/components/ContactForm";
@@ -50,6 +51,16 @@ export default async function ContactPage() {
               {localProfile.aboutIntro.map((p, i) => (
                 <p key={`intro-${i}`}>{p}</p>
               ))}
+              <p>
+                När det gäller min syn på meningen med livet kan du{" "}
+                <Link
+                  href="/meningen-med-livet"
+                  className="link-underline text-accent"
+                >
+                  klicka här för att läsa mer
+                </Link>
+                .
+              </p>
               {localProfile.aboutSections.map((sec, i) => (
                 <div key={`sec-${i}`} className="pt-4">
                   {sec.heading && (
