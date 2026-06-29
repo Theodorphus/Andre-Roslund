@@ -11,6 +11,12 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings"),
         ),
+      S.listItem()
+        .title("Meningen med livet")
+        .id("meaningOfLife")
+        .child(
+          S.document().schemaType("meaningOfLife").documentId("meaningOfLife"),
+        ),
       S.divider(),
       S.documentTypeListItem("book").title("Böcker"),
       S.documentTypeListItem("update").title("Aktuellt"),

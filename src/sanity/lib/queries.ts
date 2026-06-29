@@ -52,9 +52,15 @@ export interface PortableTextBlock {
   [key: string]: unknown;
 }
 
+export interface MeaningOfLife {
+  title?: string;
+  body?: PortableTextBlock[];
+}
+
 const settingsQuery = groq`*[_type == "siteSettings"][0]`;
 const booksQuery = groq`*[_type == "book"] | order(order asc, _createdAt asc)`;
 const updatesQuery = groq`*[_type == "update"] | order(date desc)`;
+const meaningQuery = groq`*[_type == "meaningOfLife"][0]`;
 
 // Hämtas på servern; revalideras var 60:e sekund så CMS-ändringar slår igenom
 const opts = { next: { revalidate: 60 } };
@@ -82,4 +88,8 @@ export async function getBooks(): Promise<Book[]> {
 
 export async function getUpdates(): Promise<UpdateItem[]> {
   return safeFetch<UpdateItem[]>(updatesQuery, []);
+}
+
+export async function getMeaningOfLife(): Promise<MeaningOfLife | null> {
+  return safeFetch<MeaningOfLife | null>(meaningQuery, null);
 }
