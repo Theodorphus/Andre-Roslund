@@ -92,11 +92,11 @@ const aboutText = [
   block("Jag är en livsnjutare som drivs av konst, kreativitet och det skrivna ordet."),
   block("Mitt liv rör sig mellan kontraster. Ena dagen suger jag in Stockholms pulserande tempo, för att nästa dag finna det totala lugnet i Kungsör. Det är där, på kajkanten med dinglande ben eller framför ett staffli, som jag sorterar alla intryck och idéer som snurrar i skallen."),
   block("Jag älskar att observera min omgivning. Att sitta på ett tåg med en bra bok, dricka en kopp kaffe och titta på människor som stressar förbi är en stor inspirationskälla. Likaså att ta en båtresa ut i Stockholms skärgård – det är som att kliva rakt tillbaka i tiden."),
-  block("Konst och samlande", "h3"),
+  block("🎨 Konst och samlande", "h3"),
   block("Mitt eget konstintresse blommar extra mycket under sommarmånaderna då jag gärna besöker sommarutställningar. Jag inspireras enormt av att se alla fantastiska verk av landets många duktiga amatörmålare."),
   block("I min privata samling hittar man främst verk av Bengt Lindström och Bengt Åberg. Jag har även en stor förkärlek för Lennart Jirlows konst. Utöver det köper jag gärna prisvärd djurkonst via auktioner, vilket jag anser är det absolut bekvämaste sättet att handla konst på."),
   block("Sedan 30 år tillbaka är jag också djupt fascinerad av det samiska hantverket. Jag är helt frälst i samisk slöjd och hyser en enorm beundran för Tore Sunna och släkten Fankkis fantastiska slöjdande."),
-  block("Min passion för böcker", "h3"),
+  block("📚 Min passion för böcker", "h3"),
   block("Både mitt läsande och skrivande går i perioder. Ibland blir jag så helt uppslukad av en bok att vardagens bekymmer helt glöms bort. Jag är ständigt på jakt efter den perfekta boken, även om det finns alldeles för många fantastiska verk för att bara välja ut ett enda."),
 ];
 

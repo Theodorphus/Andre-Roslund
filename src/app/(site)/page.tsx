@@ -53,8 +53,10 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero – mörk målerisk bakgrund, stort guldnamn, tre tiles */}
-      <section className="hero-paint relative flex min-h-[100svh] flex-col justify-center overflow-hidden">
+      {/* Hero – mörk målerisk bakgrund, stort guldnamn, tre tiles.
+          Full skärmhöjd först från md och uppåt; på mobil växer den med
+          innehållet så att tiles inte lämnar en stor tom yta. */}
+      <section className="hero-paint relative flex flex-col justify-center overflow-hidden md:min-h-[100svh]">
         {/* Bakgrundsbild med ken-burns + djup vignett för läsbarhet */}
         <div className="pointer-events-none absolute inset-0">
           <div className="ken-burns h-full w-full">
@@ -73,7 +75,7 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-[var(--background)]/45" />
         </div>
 
-        <div className="relative mx-auto w-full max-w-6xl px-6 py-24">
+        <div className="relative mx-auto w-full max-w-6xl px-6 py-20 md:py-24">
           <h1 className="hero-name font-display text-center text-6xl leading-none sm:text-7xl md:text-[7.5rem] fade-up">
             {name}
           </h1>
@@ -111,8 +113,8 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* Scroll-indikator */}
-        <div className="scroll-cue absolute bottom-6 left-1/2 -translate-x-1/2 text-accent/70">
+        {/* Scroll-indikator (endast när hero är full höjd, dvs md+) */}
+        <div className="scroll-cue absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-accent/70 md:block">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path
               d="M6 9l6 6 6-6"

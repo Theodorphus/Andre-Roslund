@@ -40,11 +40,30 @@ export default async function ContactPage() {
           </div>
           {settings?.aboutText?.length ? (
             <div className="mt-6 space-y-4 leading-relaxed text-muted">
-              {settings.aboutText.map((block) => (
-                <p key={block._key}>
-                  {block.children?.map((c) => c.text).join("")}
-                </p>
-              ))}
+              {settings.aboutText.map((block) => {
+                const text = block.children?.map((c) => c.text).join("") ?? "";
+                if (block.style === "h2" || block.style === "h3") {
+                  return (
+                    <h3
+                      key={block._key}
+                      className="pt-4 font-display text-xl text-accent"
+                    >
+                      {text}
+                    </h3>
+                  );
+                }
+                return <p key={block._key}>{text}</p>;
+              })}
+              <p>
+                När det gäller min syn på meningen med livet kan du{" "}
+                <Link
+                  href="/meningen-med-livet"
+                  className="link-underline text-accent"
+                >
+                  klicka här för att läsa mer
+                </Link>
+                .
+              </p>
             </div>
           ) : (
             <div className="mt-6 space-y-4 leading-relaxed text-muted">

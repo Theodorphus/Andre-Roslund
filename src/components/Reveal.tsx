@@ -33,22 +33,35 @@ export default function Reveal({
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (reduce) {
+    // Visa direkt om användaren vill ha mindre rörelse, eller om
+    // IntersectionObserver saknas (äldre webbläsare).
+    if (reduce || typeof IntersectionObserver === "undefined") {
       setVisible(true);
       return;
     }
 
+    const reveal = () => setVisible(true);
+
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          reveal();
           obs.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.05, rootMargin: "0px 0px -5% 0px" },
     );
     obs.observe(el);
-    return () => obs.disconnect();
+
+    // Säkerhetsnät: om elementet av någon anledning aldrig observeras som
+    // synligt (t.ex. layout som gör att observern inte triggar) – visa ändå
+    // efter en kort stund så att innehåll aldrig blir permanent osynligt.
+    const fallback = window.setTimeout(reveal, 1200);
+
+    return () => {
+      obs.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   const offset =
