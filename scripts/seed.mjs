@@ -74,9 +74,9 @@ const books = [
 ];
 
 const updates = [
-  { id: "update-intro", title: "Mina pågående bokprojekt", body: "Att skriva är fantastiskt roligt och inspirerande, men det kan också vara ensamt och kräva stort tålamod. Jag har en stor förkärlek för själva redigeringsarbetet – att slipa på texten tills den blir slagfärdig, tät och träffsäker. Söker man snabba kickar är författaryrket inget att rekommendera. Just nu arbetar jag parallellt med två olika manus.", date: "2026-06-01" },
-  { id: "update-seriemordaren", title: "Den ödmjuke seriemördaren (arbetstitel)", body: "En spänningsroman med hög realistisk förankring som utspelar sig i Stockholm. Berättelsen följer en seriemördare som härjar i huvudstaden och polisens intensiva jakt på att stoppa gärningsmannen.", date: "2026-06-01" },
-  { id: "update-rikets-sakerhet", title: "Rikets säkerhet (arbetstitel)", body: "En politisk thriller i militär miljö. Handlingen kretsar kring MUST (Militära underrättelse- och säkerhetstjänsten) och handlar om hur strategiska och sårbara platser skyddas i händelse av krig.", date: "2026-06-01" },
+  { id: "update-intro", title: "Mina pågående bokprojekt", body: "Att skriva är roligt men också ensamt och kräver tålamod. Jag har en förkärlek för redigeringsarbetet – att slipa texten tills den blir tät och träffsäker. Just nu arbetar jag parallellt med två manus.", date: "2026-06-01" },
+  { id: "update-seriemordaren", title: "Den ödmjuke seriemördaren (arbetstitel)", body: "En realistisk spänningsroman som utspelar sig i Stockholm, om en seriemördare och polisens jakt på gärningsmannen.", date: "2026-06-01" },
+  { id: "update-rikets-sakerhet", title: "Rikets säkerhet (arbetstitel)", body: "En politisk thriller i militär miljö kring MUST, om hur strategiska och sårbara platser skyddas i händelse av krig.", date: "2026-06-01" },
 ];
 
 // Hjälpare: gör textstycken till Portable Text-block
