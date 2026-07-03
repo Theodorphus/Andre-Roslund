@@ -103,17 +103,17 @@ export const localUpdates: LocalUpdate[] = [
   {
     _id: "update-intro",
     title: "Mina pågående bokprojekt",
-    body: "Att skriva är fantastiskt roligt och inspirerande, men det kan också vara ensamt och kräva stort tålamod. Jag har en stor förkärlek för själva redigeringsarbetet – att slipa på texten tills den blir slagfärdig, tät och träffsäker. Söker man snabba kickar är författaryrket inget att rekommendera. Just nu arbetar jag parallellt med två olika manus.",
+    body: "Att skriva är roligt men också ensamt och kräver tålamod. Jag har en förkärlek för redigeringsarbetet – att slipa texten tills den blir tät och träffsäker. Just nu arbetar jag parallellt med två manus.",
   },
   {
     _id: "update-seriemordaren",
     title: "Den ödmjuke seriemördaren (arbetstitel)",
-    body: "En spänningsroman med hög realistisk förankring som utspelar sig i Stockholm. Berättelsen följer en seriemördare som härjar i huvudstaden och polisens intensiva jakt på att stoppa gärningsmannen.",
+    body: "En realistisk spänningsroman som utspelar sig i Stockholm, om en seriemördare och polisens jakt på gärningsmannen.",
   },
   {
     _id: "update-rikets-sakerhet",
     title: "Rikets säkerhet (arbetstitel)",
-    body: "En politisk thriller i militär miljö. Handlingen kretsar kring MUST (Militära underrättelse- och säkerhetstjänsten) och handlar om hur strategiska och sårbara platser skyddas i händelse av krig.",
+    body: "En politisk thriller i militär miljö kring MUST, om hur strategiska och sårbara platser skyddas i händelse av krig.",
   },
 ];
 
@@ -127,15 +127,6 @@ export interface LocalBook {
 }
 
 export const localBooks: LocalBook[] = [
-  {
-    _id: "local-adhd",
-    title: "ADHD-bedragaren",
-    year: "2020",
-    description:
-      "Självbiografisk true crime utgiven på Bymarken Förlag.",
-    coverSrc: "/images/Bok1.jpg",
-    purchaseUrl: "https://www.boktugg.se/forfattare/315963/",
-  },
   {
     _id: "local-alsklingsgrabben",
     title: "Älsklingsgrabben",
@@ -153,6 +144,15 @@ export const localBooks: LocalBook[] = [
     description: "True crime, utgiven på Lind & Co.",
     coverSrc: "/images/Bok3.jpg",
     purchaseUrl: "https://lindco.se/",
+  },
+  {
+    _id: "local-adhd",
+    title: "ADHD-bedragaren",
+    year: "2020",
+    description:
+      "Självbiografisk true crime utgiven på Bymarken Förlag.",
+    coverSrc: "/images/Bok1.jpg",
+    purchaseUrl: "https://www.boktugg.se/forfattare/315963/",
   },
   {
     _id: "local-ettliv",
