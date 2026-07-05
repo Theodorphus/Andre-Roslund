@@ -38,6 +38,7 @@ export default function Footer({ settings }: { settings: SiteSettings | null }) 
             <li><Link href="/" className="hover:text-accent">Hem</Link></li>
             <li><Link href="/bocker" className="hover:text-accent">Böcker</Link></li>
             <li><Link href="/aktuellt" className="hover:text-accent">Aktuellt</Link></li>
+            <li><Link href="/forelasning" className="hover:text-accent">Föreläsning</Link></li>
             <li><Link href="/kontakt" className="hover:text-accent">Kontakt</Link></li>
           </ul>
         </div>

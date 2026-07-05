@@ -33,14 +33,15 @@ export default function Reveal({
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+
+    const reveal = () => setVisible(true);
+
     // Visa direkt om användaren vill ha mindre rörelse, eller om
     // IntersectionObserver saknas (äldre webbläsare).
     if (reduce || typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
+      const t = window.setTimeout(reveal, 0);
+      return () => window.clearTimeout(t);
     }
-
-    const reveal = () => setVisible(true);
 
     const obs = new IntersectionObserver(
       ([entry]) => {

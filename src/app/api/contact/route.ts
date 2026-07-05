@@ -28,15 +28,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
   }
 
-  const { name, from, message } = (body ?? {}) as {
+  const { name, from, message, subject } = (body ?? {}) as {
     name?: string;
     from?: string;
     message?: string;
+    subject?: string;
   };
 
   const cleanName = name?.trim();
   const cleanFrom = from?.trim();
   const cleanMessage = message?.trim();
+  const cleanSubject = typeof subject === "string" ? subject.trim() : "";
 
   if (!cleanName || !cleanFrom || !cleanMessage) {
     return NextResponse.json(
@@ -62,8 +64,10 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: toEmail,
       replyTo: cleanFrom,
-      subject: `Meddelande från ${cleanName} via hemsidan`,
-      text: `${cleanMessage}\n\n— ${cleanName} (${cleanFrom})`,
+      subject: cleanSubject
+        ? `${cleanSubject} – från ${cleanName}`
+        : `Meddelande från ${cleanName} via hemsidan`,
+      text: `${cleanSubject ? `Gäller: ${cleanSubject}\n\n` : ""}${cleanMessage}\n\n— ${cleanName} (${cleanFrom})`,
     });
 
     if (error) {

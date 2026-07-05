@@ -7,8 +7,21 @@ type Status = "idle" | "sending" | "success" | "error";
 /**
  * Kontaktformulär som postar till /api/contact, vilket skickar mejl via Resend.
  * toEmail används som synlig fallback-länk om något går fel.
+ *
+ * Med `subject` satt märks meddelandet med ett ämne (t.ex. en föreläsning) som
+ * hamnar i mejlets ämnesrad, så André ser direkt vad förfrågan gäller.
  */
-export default function ContactForm({ toEmail }: { toEmail: string }) {
+export default function ContactForm({
+  toEmail,
+  subject,
+  submitLabel = "Skicka",
+  messagePlaceholder = "Ditt meddelande",
+}: {
+  toEmail: string;
+  subject?: string;
+  submitLabel?: string;
+  messagePlaceholder?: string;
+}) {
   const [name, setName] = useState("");
   const [from, setFrom] = useState("");
   const [message, setMessage] = useState("");
@@ -24,7 +37,7 @@ export default function ContactForm({ toEmail }: { toEmail: string }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, from, message }),
+        body: JSON.stringify({ name, from, message, subject }),
       });
 
       if (!res.ok) {
@@ -87,9 +100,14 @@ export default function ContactForm({ toEmail }: { toEmail: string }) {
         required
         disabled={sending}
       />
+      {subject && (
+        <p className="border border-line bg-white/[0.02] px-4 py-3 text-sm text-muted">
+          Förfrågan gäller: <span className="text-accent">{subject}</span>
+        </p>
+      )}
       <textarea
         className={field}
-        placeholder="Ditt meddelande"
+        placeholder={messagePlaceholder}
         rows={5}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
@@ -112,7 +130,7 @@ export default function ContactForm({ toEmail }: { toEmail: string }) {
         disabled={sending}
         className="btn-gold px-6 py-3 text-sm uppercase tracking-wide disabled:opacity-60"
       >
-        {sending ? "Skickar…" : "Skicka"}
+        {sending ? "Skickar…" : submitLabel}
       </button>
     </form>
   );

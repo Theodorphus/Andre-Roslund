@@ -187,3 +187,50 @@ export const localBooks: LocalBook[] = [
     purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565",
   },
 ];
+
+/**
+ * Föreläsningssidan. Andrés innehåll ligger här så det är lätt att justera.
+ * Formuläret på sidan skickar en föreläsningsförfrågan via /api/contact.
+ */
+export const lecture = {
+  title: "Vad din son inte berättar för dig – en inblick inifrån",
+  intro:
+    "Den här föreläsningen vänder sig till dig som är mamma till en son som har mycket " +
+    "energi, impulsivitet eller en ADHD-diagnos, och där du känner en oro för att han är " +
+    "på väg åt fel håll. Under våra träffar i mindre grupper pratar vi utan filter om tre " +
+    "avgörande områden:",
+  points: [
+    {
+      heading: 'Bruset i huvudet och "Den första klunken"',
+      explainLabel: "Vad jag förklarar för er:",
+      explain:
+        "Jag berättar hur en ADHD-hjärna fungerar inifrån när bruset blir för högt. Du får " +
+        "höra om hur otroligt skönt det kan kännas första gången man dricker alkohol – att " +
+        "huvudet äntligen blir tyst – och varför det är en så livsfarlig fälla för just din son.",
+      watch:
+        "Att din son börjar söka sig till alkohol inte bara för att festa, utan för att dämpa " +
+        'stress, ångest eller för att "orka med" vardagen. Att han gömmer sitt mående bakom flaskan.',
+    },
+    {
+      heading: '"De felaktiga förebilderna" (Vem lyssnar han på?)',
+      explainLabel: "Vad jag förklarar för er:",
+      explain:
+        "Varför destruktiva människor kan verka så lockande för en kille med mycket energi. De " +
+        "erbjuder spänning, gemenskap och en plats där man får synas – något som en kille som " +
+        "känner sig misslyckad i skolan desperat längtar efter.",
+      watch:
+        "Nya kompisar som dyker upp plötsligt, att han börjar använda en ny jargong eller " +
+        "förändrar sina värderingar. Att han slutar lyssna på familjen och i stället styrs helt " +
+        "av personer som vill utnyttja hans impulsivitet.",
+    },
+    {
+      heading: "Hur man når fram (Att bli en person han lyssnar på)",
+      explainLabel: "Mina råd till dig som mamma:",
+      explain:
+        "Hur ska du prata med din son så att han faktiskt lyssnar, i stället för att han slår " +
+        "bakut eller stänger in sig? Här delar jag med mig av vad jag själv hade behövt höra i " +
+        "den åldern, och vad som fick mig att till slut börja lyssna på bra människor.",
+      watch: "",
+    },
+  ],
+} as const;
