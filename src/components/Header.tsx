@@ -8,6 +8,7 @@ const links = [
   { href: "/bocker", label: "Böcker" },
   { href: "/aktuellt", label: "Aktuellt" },
   { href: "/forelasning", label: "Föreläsning" },
+  { href: "/moten-som-berikar", label: "Möten som berikar" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
