@@ -3,7 +3,15 @@ import type { MetadataRoute } from "next";
 const baseUrl = "https://andre-roslund.se";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/bocker", "/aktuellt", "/forelasning", "/kontakt", "/meningen-med-livet"];
+  const routes = [
+    "",
+    "/bocker",
+    "/aktuellt",
+    "/forelasning",
+    "/moten-som-berikar",
+    "/kontakt",
+    "/meningen-med-livet",
+  ];
   const now = new Date();
 
   return routes.map((path) => ({

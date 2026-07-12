@@ -112,6 +112,33 @@ const meaningBody = [
   block("Min högsta önskan är att min pojk väljer andra, bredare vägar – och att han får uppleva den rikedom jag trots allt har haft."),
 ];
 
+// "Möten som berikar" – rubriker (h3) + stycken, speglar localContent.
+const meetingsBody = [
+  block("Möten som berikar – och lugnet efteråt", "h3"),
+  block("Att berika sig kulturellt, träffa färgstarka människor och ha intressanta utbyten behöver varken vara krystat eller kostsamt. Det är när de här stunderna ges som jag mår som bäst. De dyker upp helt oplanerat och går aldrig att förutspå. Dessa oväntade möten är verkligen livets små guldkorn."),
+  block("Cirklar som sluts", "h3"),
+  block("Ett sådant möte skedde för över tio år sedan. Jag hamnade av en slump i ett samtal med en äldre farbror. Det visade sig att han var konstkritiker och målare, och han hade känt konstnären Bengt Lindström och till och med skrivit en bok om honom. Vi pratade länge om hur Bengt var som person och delade anekdoter från deras liv."),
+  block("Långt senare fick jag en bok av en medintagen på fängelset. Han sträckte över den och sa: “Här, läs den. Jag har gjort en del affärer med honom.” Boken hette Ursäkta, mitt namn är Broman och är en riktigt bra skildring av hur en vanlig företagare drar igång en amfetaminverkstad – berättelsen som sedan blev filmen Himlen är oskyldigt blå."),
+  block("Det otroliga är att jag för bara en vecka sedan började småprata med en herre om litteratur. Det visade sig att han kände just Fleming Broman. Cirkeln var sluten."),
+  block("Färgstarka möten och oväntade bekantskaper", "h3"),
+  block("En annan person som betytt mycket för mig är författaren och debattören Lasse Strömstedt. Honom har jag haft äran att träffa, likaså redaktören som Lasse anlitade."),
+  block("Dagen efter det mötet sprang jag av en ren slump på en person som visade sig vara bästa kompis med “Tjock-Steffe” (Stefan Eriksson), och jag fick Steffes bok av honom. Jag känner inte Tjock-Steffe personligen, men jag träffade honom för första gången 1991 i Stockholm. Sedan hade jag med honom att göra igen runt 2016. Han kom fram till mig på ett hotell i Stockholm och hävdade att jag var skyldig pengar som han nu tagit över. Just då trodde jag att han skulle slå ihjäl mig, men det reddes ut på ett bra sätt."),
+  block("Jag dras inte medvetet till kriminella kretsar, men ibland korsas våra vägar ändå. Som när jag helt oplanerat sprang på en polismördare. Det var ett märkligt men intressant möte – det hade gått 27 år sedan vi senast sågs inne på Tidaholmsfängelset."),
+  block("Från statsministrar till flygplansdrama", "h3"),
+  block("Genom åren har jag även sprungit på politiska profiler som Stefan Löfven och Håkan Juholt. Juholt visade sig vara en riktigt trevlig och skön lirare. Löfven däremot har jag svårare för. Jag kan ärligt talat inte förstå hur han kunde bli statsminister, då han i mitt tycke varken kunde räkna eller diskutera ordentligt. Men när jag besökte Riksdagen sprang jag i alla fall inte på någon politiker som provocerade mig tillräckligt för att jag skulle vilja ge dem på truten. De politiska debatterna, som Eskil Erlandssons märkliga utläggningar om vad som räknas som sexuellt nyttjande av djur, visar ju bara hur bisarr den världen kan vara."),
+  block("Mitt roligaste flygplansminne var när jag fick en sittplats bredvid den tidigare länspolismästaren Carin Götblad."),
+  block("– Jag sitter inte på den platsen, sa jag till flygvärdinnan."),
+  block("– Varför då? frågade hon förvånat."),
+  block("– Hon är kriminell, jag vägrar sitta bredvid henne, svarade jag – med tanke på det så kallade Gotlandsärendet 2020."),
+  block("De jag helst undviker", "h3"),
+  block("Det finns två personer som jag i och för sig skulle vilja träffa, men samtidigt är jag glad att det inte blivit så. Jag vet nämligen inte om jag skulle kunna behärska mig från att bli fysisk."),
+  block("Den ena är den förre Justitiekanslern Göran Lambertz. Den andra är Christer van der Kwast. Den senare borde enligt min mening avtjäna ett långt fängelsestraff för hur han drev processen och lyckades fälla Thomas Quick. Både van der Kwast och Lambertz hävdar ju än idag att Sture Bergwall troligen är skyldig. Jag vet inte vem av dem som agerat dummast, men troligen van der Kwast. Lambertz har i alla fall humor, även om den sitter på fel ställe. Och så gillar han ju att dricka årgångswhisky."),
+  block("Min sanna livsstil", "h3"),
+  block("Men trots alla dessa färgstarka möten ute i världen är min sanna livsstil ganska lugn. Jag behöver inte ständigt vara i fokus eller ha folk omkring mig, även om det ofta berikar."),
+  block("Jag trivs allra bäst med att ligga i en skön soffa med datorn, TV:n och ett gäng böcker som jag lånat på biblioteket. Många nya böcker idag är så förutsägbara; alla har en liknande stil och vi försöker bli så amerikaniserade som möjligt, både inom film och litteratur."),
+  block("När tempot blir för högt drar jag mig hellre undan. Nybryggt kaffe, ett gott bakverk, ett glas iskall mjölk och så en snus förstås – det räcker för mig. Det är nästan en religiös upplevelse."),
+];
+
 async function run() {
   console.log(`Seedar Sanity-projekt "${projectId}" (dataset: ${dataset})...\n`);
 
@@ -182,6 +209,16 @@ async function run() {
     body: meaningBody,
   });
   console.log("  ✓ Meningen med livet");
+
+  // 5) Möten som berikar (singleton)
+  console.log("\nSkapar Möten som berikar...");
+  await client.createOrReplace({
+    _id: "meetings",
+    _type: "meetings",
+    title: "Möten som berikar",
+    body: meetingsBody,
+  });
+  console.log("  ✓ Möten som berikar");
 
   console.log("\n✓ Klart! Allt innehåll finns nu i Sanity. André kan logga in på /studio och redigera.");
 }

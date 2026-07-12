@@ -5,6 +5,7 @@ import { localProfile } from "@/lib/localContent";
 export default function Footer({ settings }: { settings: SiteSettings | null }) {
   const name = settings?.name ?? localProfile.name;
   const email = settings?.email ?? localProfile.email;
+  const phone = settings?.phone ?? localProfile.phone;
   const youtube = settings?.youtubeUrl ?? localProfile.youtubeUrl;
   const facebook = settings?.facebookUrl ?? localProfile.facebookUrl;
 
@@ -66,6 +67,17 @@ export default function Footer({ settings }: { settings: SiteSettings | null }) 
               {email}
             </a>
           </p>
+          {phone && (
+            <p className="mt-2 text-muted">
+              Ring mig:{" "}
+              <a
+                href={`tel:${phone.replace(/[\s-]/g, "")}`}
+                className="text-accent hover:underline"
+              >
+                {phone}
+              </a>
+            </p>
+          )}
         </div>
       </div>
 

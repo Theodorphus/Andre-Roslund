@@ -25,6 +25,8 @@ export default function ContactForm({
   const [name, setName] = useState("");
   const [from, setFrom] = useState("");
   const [message, setMessage] = useState("");
+  // Honeypot: dolt fält som människor lämnar tomt men bottar ofta fyller i.
+  const [company, setCompany] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -37,7 +39,7 @@ export default function ContactForm({
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, from, message, subject }),
+        body: JSON.stringify({ name, from, message, subject, company }),
       });
 
       if (!res.ok) {
@@ -49,6 +51,7 @@ export default function ContactForm({
       setName("");
       setFrom("");
       setMessage("");
+      setCompany("");
     } catch (err) {
       setStatus("error");
       setErrorMsg(
@@ -82,6 +85,21 @@ export default function ContactForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Honeypot: dolt för människor, fångar bottar. Inte via display:none så
+          att vissa bottar ändå fyller i det. */}
+      <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Lämna detta fält tomt
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+          />
+        </label>
+      </div>
       <input
         className={field}
         type="text"

@@ -28,12 +28,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
   }
 
-  const { name, from, message, subject } = (body ?? {}) as {
+  const { name, from, message, subject, company } = (body ?? {}) as {
     name?: string;
     from?: string;
     message?: string;
     subject?: string;
+    company?: string;
   };
+
+  // Honeypot: ett riktigt fält som bara bottar fyller i. Låtsas att allt gick
+  // bra så att boten inte lär sig kringgå skyddet – men skicka inget mejl.
+  if (typeof company === "string" && company.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
 
   const cleanName = name?.trim();
   const cleanFrom = from?.trim();
@@ -50,6 +57,14 @@ export async function POST(request: Request) {
   if (!isEmail(cleanFrom)) {
     return NextResponse.json(
       { error: "Ange en giltig e-postadress." },
+      { status: 400 },
+    );
+  }
+
+  // Enkel gräns mot uppenbart missbruk / väldigt stora payloads.
+  if (cleanName.length > 120 || cleanFrom.length > 200 || cleanMessage.length > 5000) {
+    return NextResponse.json(
+      { error: "Meddelandet är för långt." },
       { status: 400 },
     );
   }
