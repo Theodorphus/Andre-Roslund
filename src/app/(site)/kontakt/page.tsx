@@ -17,6 +17,7 @@ export default async function ContactPage() {
   const name = settings?.name ?? localProfile.name;
   const email = settings?.email ?? localProfile.email;
   const phone = settings?.phone ?? localProfile.phone;
+  const wikipedia = settings?.wikipediaUrl ?? localProfile.wikipediaUrl;
 
   return (
     <section className="mx-auto max-w-6xl px-6 pt-32 pb-24">
@@ -118,6 +119,21 @@ export default async function ContactPage() {
                     className="link-underline"
                   >
                     {phone}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {wikipedia && (
+              <div>
+                <dt className="uppercase tracking-wide text-muted">Wikipedia</dt>
+                <dd>
+                  <a
+                    href={wikipedia}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline"
+                  >
+                    André Roslund på Wikipedia
                   </a>
                 </dd>
               </div>

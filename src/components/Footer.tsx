@@ -8,6 +8,7 @@ export default function Footer({ settings }: { settings: SiteSettings | null }) 
   const phone = settings?.phone ?? localProfile.phone;
   const youtube = settings?.youtubeUrl ?? localProfile.youtubeUrl;
   const facebook = settings?.facebookUrl ?? localProfile.facebookUrl;
+  const wikipedia = settings?.wikipediaUrl ?? localProfile.wikipediaUrl;
 
   const socials = [
     { href: youtube, label: "YouTube" },
@@ -16,6 +17,7 @@ export default function Footer({ settings }: { settings: SiteSettings | null }) 
       label: "Instagram",
     },
     facebook && { href: facebook, label: "Facebook" },
+    wikipedia && { href: wikipedia, label: "Wikipedia" },
   ].filter(Boolean) as { href: string; label: string }[];
 
   return (

@@ -58,6 +58,7 @@ export const localProfile = {
   phone: "076-286 81 43",
   facebookUrl: "https://www.facebook.com/profile.php?id=100074433578866",
   youtubeUrl: "https://www.youtube.com/@andreroslund1366",
+  wikipediaUrl: "https://sv.wikipedia.org/wiki/André_Roslund",
 } as const;
 
 /**
@@ -200,7 +201,8 @@ export const localBooks: LocalBook[] = [
     year: "2016",
     description: "True crime, utgiven på Lind & Co.",
     coverSrc: "/images/Bok3.jpg",
-    purchaseUrl: "https://lindco.se/",
+    purchaseUrl:
+      "https://www.storytel.com/se/books/r%C3%A4nderna-g%C3%A5r-aldrig-ur-718312",
   },
   {
     _id: "local-adhd",
@@ -209,7 +211,7 @@ export const localBooks: LocalBook[] = [
     description:
       "Självbiografisk true crime utgiven på Bymarken Förlag.",
     coverSrc: "/images/Bok1.jpg",
-    purchaseUrl: "https://www.boktugg.se/forfattare/315963/",
+    purchaseUrl: "https://www.adlibris.com/se/bok/adhd-bedragaren-9789198574418",
   },
   {
     _id: "local-ettliv",
@@ -217,15 +219,17 @@ export const localBooks: LocalBook[] = [
     year: "2022",
     description: "Självbiografisk berättelse.",
     coverSrc: "/images/Bok4.jpg",
-    purchaseUrl: "https://www.boktugg.se/forfattare/315963/",
+    purchaseUrl:
+      "https://www.adlibris.com/sv/bok/ett-liv-i-missbruk-och-brott-9789152739853",
   },
   {
     _id: "local-bekannelser",
     title: "En bedragares bekännelser",
     year: "2024",
     description: "Självbiografisk true crime.",
-    coverSrc: "/images/Bok5.webp",
-    purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565",
+    coverSrc: "/images/Bok55.png",
+    purchaseUrl:
+      "https://www.storytel.com/se/books/en-bedragares-bek%C3%A4nnelser-6565135",
   },
   {
     _id: "local-lillaitalien",
@@ -233,7 +237,7 @@ export const localBooks: LocalBook[] = [
     year: "2024",
     description: "True crime.",
     coverSrc: "/images/Bok6.jpg",
-    purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565",
+    purchaseUrl: "https://www.storytel.com/se/books/lilla-italien-10165087",
   },
   {
     _id: "local-brandbilen",
@@ -241,7 +245,7 @@ export const localBooks: LocalBook[] = [
     year: "2024",
     description: "Novell.",
     coverSrc: "/images/Bok7.jpg",
-    purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565",
+    purchaseUrl: "https://nextory.com/se/book/brandbilen-5682712",
   },
 ];
 

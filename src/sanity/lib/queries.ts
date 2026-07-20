@@ -36,6 +36,7 @@ export interface SiteSettings {
   youtubeUrl?: string;
   instagramUrl?: string;
   facebookUrl?: string;
+  wikipediaUrl?: string;
 }
 
 // Minimal Sanity-bildtyp (räcker för urlForImage)
