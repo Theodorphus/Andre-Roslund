@@ -8,17 +8,22 @@ export default function BookCard({
   book: Book;
   fallbackCoverSrc?: string;
 }) {
+  // Kvadratiska omslag (ljudböcker) beskärs sönder av 2:3-ramen – visa dem
+  // istället i sin helhet, centrerade mot en diskret bakgrund.
+  const fitContain = book.coverFit === "contain";
+
   return (
     <article className="group flex flex-col">
-      <div className="tile !aspect-[2/3]">
+      <div className="tile !aspect-[2/3] bg-[#141a28]">
         <SanityImg
           image={book.cover}
           fallbackSrc={fallbackCoverSrc}
           alt={`Omslag: ${book.title}`}
-          width={400}
+          width={fitContain ? 600 : 400}
           height={600}
           sizes="(max-width: 640px) 50vw, 300px"
-          className="h-full w-full object-cover"
+          fit={fitContain ? "contain" : "crop"}
+          className={`h-full w-full ${fitContain ? "object-contain" : "object-cover"}`}
         />
         {/* Mörk gradient som tonas in nedtill vid hover */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -41,7 +46,7 @@ export default function BookCard({
             rel="noopener noreferrer"
             className="btn-gold mt-3 inline-block px-4 py-2 text-xs uppercase tracking-wide"
           >
-            Köp boken
+            {book.purchaseLabel || "Köp boken"}
           </a>
         )}
       </div>

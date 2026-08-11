@@ -35,6 +35,27 @@ export const book = defineType({
       type: "url",
     }),
     defineField({
+      name: "purchaseLabel",
+      title: "Knapptext",
+      description: 'Lämna tom för "Köp boken". Använd t.ex. "Lyssna här" för ljudböcker.',
+      type: "string",
+    }),
+    defineField({
+      name: "coverFit",
+      title: "Omslagets passform",
+      description:
+        'Välj "Hela omslaget syns" för kvadratiska omslag (ofta ljudböcker) så att inget beskärs.',
+      type: "string",
+      options: {
+        list: [
+          { title: "Fyll rutan (beskärs)", value: "cover" },
+          { title: "Hela omslaget syns", value: "contain" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "cover",
+    }),
+    defineField({
       name: "order",
       title: "Sorteringsordning",
       description: "Lägre tal visas först.",

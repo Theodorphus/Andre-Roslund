@@ -9,7 +9,11 @@ export interface Book {
   year?: string;
   description?: string;
   purchaseUrl?: string;
+  /** Text på knappen, t.ex. "Lyssna här" för ljudböcker. Standard: "Köp boken". */
+  purchaseLabel?: string;
   cover?: SanityImage;
+  /** Sätts för kvadratiska omslag (ljudböcker) så hela omslaget syns. */
+  coverFit?: "cover" | "contain";
 }
 
 export interface UpdateItem {

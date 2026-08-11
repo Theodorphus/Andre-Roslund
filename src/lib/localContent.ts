@@ -181,6 +181,10 @@ export interface LocalBook {
   description?: string;
   coverSrc: string;
   purchaseUrl?: string;
+  /** Text på knappen, t.ex. "Lyssna här" för ljudböcker. Standard: "Köp boken". */
+  purchaseLabel?: string;
+  /** Sätts för kvadratiska omslag (ljudböcker) så hela omslaget syns. */
+  coverFit?: "cover" | "contain";
 }
 
 export const localBooks: LocalBook[] = [
@@ -201,6 +205,9 @@ export const localBooks: LocalBook[] = [
     description: "True crime, utgiven på Lind & Co.",
     coverSrc: "/images/Bok3.jpg",
     purchaseUrl: "https://lindco.se/",
+    purchaseLabel: "Lyssna här",
+    // Kvadratiskt ljudboksomslag – får inte beskäras till 2:3.
+    coverFit: "contain",
   },
   {
     _id: "local-adhd",
@@ -208,7 +215,7 @@ export const localBooks: LocalBook[] = [
     year: "2020",
     description:
       "Självbiografisk true crime utgiven på Bymarken Förlag.",
-    coverSrc: "/images/Bok1.jpg",
+    coverSrc: "/images/Bok1.png",
     purchaseUrl: "https://www.boktugg.se/forfattare/315963/",
   },
   {
@@ -216,7 +223,7 @@ export const localBooks: LocalBook[] = [
     title: "Ett liv i missbruk & brott",
     year: "2022",
     description: "Självbiografisk berättelse.",
-    coverSrc: "/images/Bok4.jpg",
+    coverSrc: "/images/Bok4.png",
     purchaseUrl: "https://www.boktugg.se/forfattare/315963/",
   },
   {
@@ -224,7 +231,7 @@ export const localBooks: LocalBook[] = [
     title: "En bedragares bekännelser",
     year: "2024",
     description: "Självbiografisk true crime.",
-    coverSrc: "/images/Bok5.webp",
+    coverSrc: "/images/Bok5.png",
     purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565",
   },
   {

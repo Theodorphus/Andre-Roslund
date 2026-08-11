@@ -65,10 +65,10 @@ async function uploadImage(filename) {
 
 const books = [
   { id: "book-alsklingsgrabben", title: "Älsklingsgrabben", year: "1999", description: "Andrés debutroman, utgiven på Fischer & Co.", purchaseUrl: "https://nextory.com/se/book/alsklingsgrabben-2719001", cover: "Bok2.webp", order: 1 },
-  { id: "book-randerna", title: "Ränderna går aldrig ur", year: "2016", description: "True crime, utgiven på Lind & Co.", purchaseUrl: "https://lindco.se/", cover: "Bok3.jpg", order: 2 },
-  { id: "book-adhd", title: "ADHD-bedragaren", year: "2020", description: "Självbiografisk true crime utgiven på Bymarken Förlag.", purchaseUrl: "https://www.boktugg.se/forfattare/315963/", cover: "Bok1.jpg", order: 3 },
-  { id: "book-ettliv", title: "Ett liv i missbruk & brott", year: "2022", description: "Självbiografisk berättelse.", purchaseUrl: "https://www.boktugg.se/forfattare/315963/", cover: "Bok4.jpg", order: 4 },
-  { id: "book-bekannelser", title: "En bedragares bekännelser", year: "2024", description: "Självbiografisk true crime.", purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565", cover: "Bok5.webp", order: 5 },
+  { id: "book-randerna", title: "Ränderna går aldrig ur", year: "2016", description: "True crime, utgiven på Lind & Co.", purchaseUrl: "https://lindco.se/", purchaseLabel: "Lyssna här", coverFit: "contain", cover: "Bok3.jpg", order: 2 },
+  { id: "book-adhd", title: "ADHD-bedragaren", year: "2020", description: "Självbiografisk true crime utgiven på Bymarken Förlag.", purchaseUrl: "https://www.boktugg.se/forfattare/315963/", cover: "Bok1.png", order: 3 },
+  { id: "book-ettliv", title: "Ett liv i missbruk & brott", year: "2022", description: "Självbiografisk berättelse.", purchaseUrl: "https://www.boktugg.se/forfattare/315963/", cover: "Bok4.png", order: 4 },
+  { id: "book-bekannelser", title: "En bedragares bekännelser", year: "2024", description: "Självbiografisk true crime.", purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565", cover: "Bok5.png", order: 5 },
   { id: "book-lillaitalien", title: "Lilla Italien", year: "2024", description: "True crime.", purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565", cover: "Bok6.jpg", order: 6 },
   { id: "book-brandbilen", title: "Brandbilen", year: "2024", description: "Novell.", purchaseUrl: "https://www.storytel.com/se/authors/andré-roslund-217565", cover: "Bok7.jpg", order: 7 },
 ];
@@ -126,6 +126,8 @@ async function run() {
       year: b.year,
       description: b.description,
       purchaseUrl: b.purchaseUrl,
+      ...(b.purchaseLabel ? { purchaseLabel: b.purchaseLabel } : {}),
+      coverFit: b.coverFit ?? "cover",
       order: b.order,
       ...(cover ? { cover } : {}),
     });

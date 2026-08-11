@@ -12,6 +12,11 @@ interface Props {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /**
+   * Hindrar serverside-beskärning i Sanity: bilden skalas inom width/height
+   * med bevarade proportioner. Används när vi visar hela omslaget (object-contain).
+   */
+  fit?: "crop" | "contain";
 }
 
 /**
@@ -28,9 +33,12 @@ export default function SanityImg({
   className,
   sizes,
   priority,
+  fit = "crop",
 }: Props) {
   const src = image?.asset
-    ? urlForImage(image).width(width).height(height).url()
+    ? fit === "contain"
+      ? urlForImage(image).width(width).height(height).fit("max").url()
+      : urlForImage(image).width(width).height(height).url()
     : fallbackSrc;
 
   if (!src) {

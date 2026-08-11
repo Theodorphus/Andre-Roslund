@@ -20,6 +20,8 @@ export default async function BooksPage() {
           year: b.year,
           description: b.description,
           purchaseUrl: b.purchaseUrl,
+          purchaseLabel: b.purchaseLabel,
+          coverFit: b.coverFit,
         },
         fallback: b.coverSrc,
       }))
