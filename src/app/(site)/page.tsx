@@ -3,7 +3,15 @@ import { getSettings, getBooks, getUpdates } from "@/sanity/lib/queries";
 import SanityImg from "@/components/SanityImg";
 import BookCard from "@/components/BookCard";
 import Reveal from "@/components/Reveal";
-import { localImages, localBooks, localUpdates } from "@/lib/localContent";
+import JsonLd from "@/components/JsonLd";
+import {
+  localImages,
+  localBooks,
+  localUpdates,
+  localProfile,
+} from "@/lib/localContent";
+
+const SITE_URL = "https://www.andre-roslund.se";
 
 export default async function HomePage() {
   const [settings, books, updates] = await Promise.all([
@@ -53,8 +61,43 @@ export default async function HomePage() {
     },
   ];
 
+  // Strukturerad data: hjälper Google koppla sidan till personen André
+  // Roslund (Wikipedia-länken är en stark entitetssignal) och att förstå
+  // att böckerna nedan är hans verk.
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name,
+    url: SITE_URL,
+    jobTitle: "Författare",
+    nationality: "SE",
+    email: settings?.email ?? localProfile.email,
+    sameAs: [
+      settings?.wikipediaUrl ?? localProfile.wikipediaUrl,
+      settings?.facebookUrl ?? localProfile.facebookUrl,
+      settings?.youtubeUrl ?? localProfile.youtubeUrl,
+    ].filter(Boolean),
+    worksFor: { "@type": "Organization", name: "Frilans" },
+  };
+
+  const booksSchema = displayBooks.map((d) => ({
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: d.book.title,
+    author: { "@type": "Person", name, url: SITE_URL },
+    ...(d.book.year ? { datePublished: d.book.year } : {}),
+    ...(d.book.description ? { description: d.book.description } : {}),
+    ...(d.book.purchaseUrl ? { url: d.book.purchaseUrl } : {}),
+    inLanguage: "sv",
+  }));
+
   return (
     <>
+      <JsonLd data={personSchema} />
+      {booksSchema.map((b) => (
+        <JsonLd key={`schema-${b.name}`} data={b} />
+      ))}
+
       {/* Hero – mörk målerisk bakgrund, stort guldnamn, tre tiles.
           Full skärmhöjd först från md och uppåt; på mobil växer den med
           innehållet så att tiles inte lämnar en stor tom yta. */}
