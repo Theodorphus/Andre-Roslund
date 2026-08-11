@@ -90,6 +90,12 @@ export const siteSettings = defineType({
       title: "Facebook-länk",
       type: "url",
     }),
+    defineField({
+      name: "wikipediaUrl",
+      title: "Wikipedia-länk",
+      type: "url",
+      initialValue: "https://sv.wikipedia.org/wiki/André_Roslund",
+    }),
   ],
   preview: {
     prepare: () => ({ title: "Sidinställningar" }),

@@ -40,6 +40,7 @@ export interface SiteSettings {
   youtubeUrl?: string;
   instagramUrl?: string;
   facebookUrl?: string;
+  wikipediaUrl?: string;
 }
 
 // Minimal Sanity-bildtyp (räcker för urlForImage)
@@ -61,10 +62,16 @@ export interface MeaningOfLife {
   body?: PortableTextBlock[];
 }
 
+export interface Meetings {
+  title?: string;
+  body?: PortableTextBlock[];
+}
+
 const settingsQuery = groq`*[_type == "siteSettings"][0]`;
 const booksQuery = groq`*[_type == "book"] | order(order asc, _createdAt asc)`;
 const updatesQuery = groq`*[_type == "update"] | order(date desc)`;
 const meaningQuery = groq`*[_type == "meaningOfLife"][0]`;
+const meetingsQuery = groq`*[_type == "meetings"][0]`;
 
 // Hämtas på servern; revalideras var 60:e sekund så CMS-ändringar slår igenom
 const opts = { next: { revalidate: 60 } };
@@ -96,4 +103,8 @@ export async function getUpdates(): Promise<UpdateItem[]> {
 
 export async function getMeaningOfLife(): Promise<MeaningOfLife | null> {
   return safeFetch<MeaningOfLife | null>(meaningQuery, null);
+}
+
+export async function getMeetings(): Promise<Meetings | null> {
+  return safeFetch<Meetings | null>(meetingsQuery, null);
 }

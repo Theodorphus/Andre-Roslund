@@ -4,6 +4,7 @@ import { getSettings } from "@/sanity/lib/queries";
 import SanityImg from "@/components/SanityImg";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
+import PortableTextBlocks from "@/components/PortableTextBlocks";
 import { localImages, localProfile } from "@/lib/localContent";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default async function ContactPage() {
   const name = settings?.name ?? localProfile.name;
   const email = settings?.email ?? localProfile.email;
   const phone = settings?.phone ?? localProfile.phone;
+  const wikipedia = settings?.wikipediaUrl ?? localProfile.wikipediaUrl;
 
   return (
     <section className="mx-auto max-w-6xl px-6 pt-32 pb-24">
@@ -40,20 +42,7 @@ export default async function ContactPage() {
           </div>
           {settings?.aboutText?.length ? (
             <div className="mt-6 space-y-4 leading-relaxed text-muted">
-              {settings.aboutText.map((block) => {
-                const text = block.children?.map((c) => c.text).join("") ?? "";
-                if (block.style === "h2" || block.style === "h3") {
-                  return (
-                    <h3
-                      key={block._key}
-                      className="pt-4 font-display text-xl text-accent"
-                    >
-                      {text}
-                    </h3>
-                  );
-                }
-                return <p key={block._key}>{text}</p>;
-              })}
+              <PortableTextBlocks blocks={settings.aboutText} />
               <p>
                 När det gäller min syn på meningen med livet kan du{" "}
                 <Link
@@ -130,6 +119,21 @@ export default async function ContactPage() {
                     className="link-underline"
                   >
                     {phone}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {wikipedia && (
+              <div>
+                <dt className="uppercase tracking-wide text-muted">Wikipedia</dt>
+                <dd>
+                  <a
+                    href={wikipedia}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline"
+                  >
+                    André Roslund på Wikipedia
                   </a>
                 </dd>
               </div>
