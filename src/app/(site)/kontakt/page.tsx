@@ -8,8 +8,11 @@ import PortableTextBlocks from "@/components/PortableTextBlocks";
 import { localImages, localProfile } from "@/lib/localContent";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
-  description: "Kontakta författaren André Roslund.",
+  // Sidan är både presentation och kontakt – titeln speglar båda så att den
+  // även fångar sökningar på "André Roslund författare".
+  title: "Om mig & kontakt",
+  description:
+    "Om André Roslund – författare, konstsamlare och livsnjutare mellan Stockholm och Kungsör. Här når du mig för bokning, föreläsning eller frågor.",
 };
 
 export default async function ContactPage() {

@@ -7,7 +7,8 @@ import { meaningOfLife as localMeaning } from "@/lib/localContent";
 
 export const metadata: Metadata = {
   title: "Meningen med livet",
-  description: "André Roslunds tankar om meningen med livet.",
+  description:
+    "En personlig text av André Roslund om vad som egentligen är den sanna rikedomen – om frihet, naturen, att se sina barn växa upp och vad man lämnar vidare.",
 };
 
 export default async function MeaningPage() {

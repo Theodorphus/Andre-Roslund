@@ -5,7 +5,8 @@ import { localUpdates } from "@/lib/localContent";
 
 export const metadata: Metadata = {
   title: "Aktuellt",
-  description: "Det senaste från André Roslund – vad jag arbetar med just nu.",
+  description:
+    "Det senaste från André Roslund – bland annat de pågående manusen Den ödmjuke seriemördaren och Rikets säkerhet.",
 };
 
 export default async function UpdatesPage() {

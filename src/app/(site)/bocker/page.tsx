@@ -6,7 +6,8 @@ import { localBooks } from "@/lib/localContent";
 
 export const metadata: Metadata = {
   title: "Böcker",
-  description: "Böcker av författaren André Roslund.",
+  description:
+    "Alla böcker av André Roslund – från debutromanen Älsklingsgrabben till true crime som Ränderna går aldrig ur, ADHD-bedragaren och Lilla Italien.",
 };
 
 export default async function BooksPage() {
