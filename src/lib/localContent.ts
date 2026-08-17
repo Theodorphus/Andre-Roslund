@@ -198,6 +198,7 @@ export const localBooks: LocalBook[] = [
     coverSrc: "/images/Bok2.webp",
     purchaseUrl:
       "https://nextory.com/se/book/alsklingsgrabben-2719001",
+    purchaseLabel: "Lyssna här",
   },
   {
     _id: "local-randerna",

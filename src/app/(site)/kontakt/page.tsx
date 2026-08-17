@@ -136,7 +136,7 @@ export default async function ContactPage() {
                     rel="noopener noreferrer"
                     className="link-underline"
                   >
-                    André Roslund på Wikipedia
+                    André Roslund
                   </a>
                 </dd>
               </div>

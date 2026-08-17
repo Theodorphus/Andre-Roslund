@@ -64,7 +64,7 @@ async function uploadImage(filename) {
 // --- Innehåll (speglar src/lib/localContent.ts) ---
 
 const books = [
-  { id: "book-alsklingsgrabben", title: "Älsklingsgrabben", year: "1999", description: "Andrés debutroman, utgiven på Fischer & Co.", purchaseUrl: "https://nextory.com/se/book/alsklingsgrabben-2719001", cover: "Bok2.webp", order: 1 },
+  { id: "book-alsklingsgrabben", title: "Älsklingsgrabben", year: "1999", description: "Andrés debutroman, utgiven på Fischer & Co.", purchaseUrl: "https://nextory.com/se/book/alsklingsgrabben-2719001", purchaseLabel: "Lyssna här", cover: "Bok2.webp", order: 1 },
   { id: "book-randerna", title: "Ränderna går aldrig ur", year: "2016", description: "True crime, utgiven på Lind & Co.", purchaseUrl: "https://www.storytel.com/se/books/r%C3%A4nderna-g%C3%A5r-aldrig-ur-718312", purchaseLabel: "Lyssna här", coverFit: "contain", cover: "Bok3.jpg", order: 2 },
   { id: "book-adhd", title: "ADHD-bedragaren", year: "2020", description: "Självbiografisk true crime utgiven på Bymarken Förlag.", purchaseUrl: "https://www.adlibris.com/se/bok/adhd-bedragaren-9789198574418", cover: "Bok1.png", order: 3 },
   { id: "book-ettliv", title: "Ett liv i missbruk & brott", year: "2022", description: "Självbiografisk berättelse.", purchaseUrl: "https://www.adlibris.com/sv/bok/ett-liv-i-missbruk-och-brott-9789152739853", cover: "Bok4.png", order: 4 },
